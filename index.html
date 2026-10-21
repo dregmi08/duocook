@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DuoCook: One VLM, Two Cooks, Every Order on the Clock</title>
 <meta name="description" content="DuoCook is an Overcooked-inspired Unreal Engine benchmark where a single vision-language model controls two players in 20 agent-generated kitchens.">
-<meta name="theme-color" content="#e8ecef">
+<meta name="theme-color" content="#07152a">
 <meta property="og:title" content="DuoCook: a benchmark for centralized two-player coordination with VLMs">
 <meta property="og:description" content="20 kitchens, five map categories, one controller for two cooks. Explore the maps, scoring, and evaluation protocol.">
 <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f5f7fa;
@@ -21,7 +21,7 @@
   --line:rgba(15,23,42,.08);
   --ink:#0f172a;
   --mid:#5b6578;
-  --tile:#0d9488;
+  --tile:#1f9d6b;
   --tile-dark:#0f766e;
   --night:#0a1020;
   --signal:#fbbf24;
@@ -48,7 +48,7 @@ img{max-width:100%;display:block}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 .narrow{max-width:700px}
 h1,h2,h3{font-family:var(--display);line-height:1.04;letter-spacing:-0.03em;margin:0}
-h2{font-size:clamp(32px,4.6vw,56px);font-weight:800;margin-bottom:20px}
+h2{font-size:clamp(32px,4.6vw,56px);font-weight:700;margin-bottom:20px}
 h3{font-size:21px;font-weight:700;letter-spacing:-0.015em;margin-bottom:8px}
 p{margin:0 0 1em}
 section{padding:104px 0}
@@ -62,7 +62,7 @@ nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:30;width
   background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
   border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px;padding:0 10px 0 22px}
-.brand{font-family:var(--display);font-weight:800;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:-0.03em}
+.brand{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:-0.03em}
 .navlinks{display:flex;gap:4px;font-size:14.5px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .navlinks::-webkit-scrollbar{display:none}
 .navlinks a{color:var(--mid);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .15s,color .15s}
@@ -71,11 +71,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 /* hero */
 .hero{padding:150px 0 96px;position:relative;overflow:hidden;
   background:
-   radial-gradient(60% 55% at 85% 10%,rgba(13,148,136,.22),transparent 70%),
+   radial-gradient(60% 55% at 85% 10%,rgba(31,157,107,.22),transparent 70%),
    radial-gradient(50% 50% at 8% 90%,rgba(251,191,36,.20),transparent 70%),
    var(--bg)}
 .hero .grid{display:grid;grid-template-columns:1.2fr 0.95fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(46px,7.2vw,96px);font-weight:800;letter-spacing:-0.045em;line-height:.93}
+.hero h1{font-size:clamp(46px,7.2vw,96px);font-weight:700;letter-spacing:-0.045em;line-height:.93}
 .hero .sub{font-size:21px;max-width:34ch;margin:26px 0 8px;color:var(--mid)}
 .authors{margin:28px 0 6px;font-size:16.5px;line-height:1.9}
 .authors span{white-space:nowrap;font-weight:500}
@@ -91,7 +91,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .ticket{background:var(--ticket);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);padding:24px 24px 20px;position:relative}
 .ticket::after{display:none}
 .ticket-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px dashed var(--steel-2);padding-bottom:14px;margin-bottom:16px}
-.ticket-head b{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-0.03em}
+.ticket-head b{font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:-0.03em}
 .ticket-head span{font-family:var(--mono);font-size:13px;color:var(--mid);white-space:nowrap}
 .zonebar{display:flex;height:14px;border-radius:999px;overflow:hidden;position:relative;gap:2px}
 .zonebar i{display:block;height:100%}
@@ -102,7 +102,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .ticket-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
 .stat{background:var(--steel);border-radius:14px;padding:12px 14px}
 .stat small{display:block;font-size:12.5px;color:var(--mid)}
-.stat b{font-family:var(--display);font-size:28px;font-weight:800;letter-spacing:-0.03em;line-height:1.1}
+.stat b{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-0.03em;line-height:1.1}
 .ticket-note{font-size:13.5px;color:var(--mid);margin:16px 0 0}
 
 /* generic blocks */
@@ -113,7 +113,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .rule:nth-child(1){background:linear-gradient(160deg,#f0fdfa,#fff 70%)}
 .rule:nth-child(3){background:linear-gradient(160deg,#fffbeb,#fff 70%)}
 .dark{background:var(--night);color:#e2e8f0;position:relative;overflow:hidden;
-  background:radial-gradient(50% 45% at 90% 0%,rgba(13,148,136,.28),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(251,191,36,.10),transparent 70%),var(--night)}
+  background:radial-gradient(50% 45% at 90% 0%,rgba(31,157,107,.28),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(251,191,36,.10),transparent 70%),var(--night)}
 .dark .muted,.dark .cols p{color:#94a3b8}
 .dark a{color:var(--signal)}
 .fig{margin:44px 0 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;position:relative;box-shadow:var(--shadow)}
@@ -146,7 +146,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .field label span{font-family:var(--mono);font-weight:500;background:var(--steel);padding:2px 10px;border-radius:999px;font-size:14px}
 input[type=range]{width:100%;accent-color:var(--tile)}
 .formula{font-family:var(--mono);font-size:15px;background:var(--steel);padding:14px 16px;border-radius:14px;margin-top:18px}
-.bigreward{font-family:var(--display);font-weight:800;font-size:84px;letter-spacing:-0.05em;line-height:1}
+.bigreward{font-family:var(--display);font-weight:700;font-size:84px;letter-spacing:-0.05em;line-height:1}
 .expired{color:var(--alarm)}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -160,7 +160,7 @@ th{font-family:var(--display);font-size:15px;font-weight:700}
 /* loop */
 .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;counter-reset:s}
 .loop > div{padding:24px;border-radius:var(--r);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);counter-increment:s}
-.loop > div::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:999px;background:var(--signal);color:var(--ink);font-family:var(--display);font-weight:800;font-size:14px;margin-bottom:14px}
+.loop > div::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:999px;background:var(--signal);color:var(--ink);font-family:var(--display);font-weight:700;font-size:14px;margin-bottom:14px}
 .loop h3{font-size:19px;color:#fff}
 .loop p{font-size:15px;color:#94a3b8;margin:0}
 .triggers{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -224,6 +224,125 @@ td.num,th.num{text-align:right}
 .bar-legend span{display:inline-flex;align-items:center;gap:6px}
 .bar-legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
 .delta{font-family:var(--mono);font-size:15px}
+
+.viz-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+.legendrow{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:12.5px;color:var(--mid);margin-bottom:6px}
+.legendrow span{display:inline-flex;align-items:center;gap:7px}
+.legendrow i{width:11px;height:11px;border-radius:50%;display:inline-block}
+#scatter svg{width:100%;height:auto;display:block}
+#scatter text{font-family:var(--body);fill:var(--mid);font-size:12px}
+#scatter .nm{font-family:var(--mono);fill:var(--ink);font-size:12.5px;font-weight:500}
+#scatter .pt{transform-box:fill-box;transform-origin:center;opacity:0}
+.in .pt{animation:pop .7s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.mini .viz-card{padding:20px}
+.mini h4{margin:0 0 14px;font-family:var(--display);font-size:17px;letter-spacing:-.02em;display:flex;justify-content:space-between;gap:8px}
+.mini h4 small{font-family:var(--body);font-weight:500;font-size:12.5px;color:var(--mid)}
+.mrow{margin-bottom:11px}.mrow:last-child{margin-bottom:0}
+.mname{font-family:var(--mono);font-size:11.5px;color:var(--mid);margin-bottom:3px}
+.mbar{display:flex;align-items:center;gap:10px}
+.mtrack{flex:1;height:14px;border-radius:999px;background:var(--steel);overflow:hidden}
+.mfill{display:block;height:100%;width:0;border-radius:999px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.in .mfill{width:var(--w)}
+.mval{font-family:var(--mono);font-size:13px;min-width:46px;text-align:right}
+.mval.best{font-weight:700}
+.dv{display:flex;align-items:center;gap:10px;min-width:220px}
+.dvbar{position:relative;flex:1;height:16px;background:var(--steel);border-radius:999px}
+.dvbar::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.5}
+.dvbar i{position:absolute;top:0;bottom:0;border-radius:999px}
+@media (max-width:900px){.mini{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.mini{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mfill{transition:none}.in .pt{animation:none;opacity:1}}
+
+.profile{margin-top:14px;padding:26px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tab{font-family:var(--mono);font-size:13.5px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s}
+.tab:hover{background:var(--steel)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
+#pRadar svg{width:100%;height:auto;display:block;overflow:visible}
+#pRadar .ax{cursor:pointer;outline:none}
+#pRadar .ax text{font-size:13px;fill:var(--mid);font-family:var(--body)}
+#pRadar .ax.sel text{fill:var(--ink);font-weight:700}
+#pRadar .ax:focus-visible circle:first-child{stroke:var(--signal)}
+.poly{transform-box:view-box;transform-origin:210px 190px;animation:grow .8s cubic-bezier(.2,.9,.3,1) both}
+@keyframes grow{from{transform:scale(.15);opacity:0}to{transform:scale(1);opacity:1}}
+.statcard{background:var(--steel);border-radius:var(--r);padding:20px 22px;margin:18px 0}
+.statcard small{color:var(--mid);display:block}
+.statcard b.big{display:block;font-family:var(--display);font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1.15;margin:2px 0 6px}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.cats div{border-radius:10px;padding:8px 2px;text-align:center;font-size:11.5px;line-height:1.3}
+@media (max-width:900px){.pgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.poly{animation:none}}
+
+/* ---- navy + green professional theme ---- */
+:root{
+  --bg:#f3f6f8;--card:#fff;--line:rgba(11,31,58,.10);
+  --ink:#0b1f3a;--mid:#4b5b73;
+  --tile:#1b8a5a;--tile-dark:#136b45;--accent:#3ddc97;
+  --night:#07152a;--steel:#edf1f5;--steel-2:#dde4ec;
+  --r:14px;--radius:8px;
+  --display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(11,31,58,.05),0 10px 28px -14px rgba(11,31,58,.22);
+}
+body{font-size:16.5px;line-height:1.65;letter-spacing:-0.005em}
+h1,h2,h3{letter-spacing:-0.03em;line-height:1.1}
+h2{font-size:clamp(28px,3.8vw,44px)}
+a{color:var(--tile-dark)}
+:focus-visible{outline-color:var(--tile)}
+.rule:nth-child(1){background:linear-gradient(160deg,#eaf7f1,#fff 70%)}
+.rule:nth-child(3){background:linear-gradient(160deg,#eaf0f9,#fff 70%)}
+.callout{background:linear-gradient(90deg,#eaf7f1,#fff)}
+
+/* nav: full-width navy bar */
+nav{top:0;left:0;transform:none;width:100%;border-radius:0;background:rgba(7,21,42,.9);border:0;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:none}
+nav .wrap{padding:0 24px;max-width:1120px}
+.brand{color:#fff;font-weight:700}
+.navlinks a{color:#b4c2d8;border-radius:6px}
+.navlinks a:hover{color:#fff;background:rgba(255,255,255,.08)}
+
+/* hero: dark navy */
+.hero{color:#fff;background:
+  radial-gradient(60% 60% at 88% 0%,rgba(61,220,151,.20),transparent 70%),
+  radial-gradient(55% 55% at 0% 100%,rgba(30,64,175,.35),transparent 70%),var(--night)}
+.hero h1{color:#fff;font-weight:700;letter-spacing:-0.045em}
+.hero .sub{color:#b4c2d8}
+.hero .authors{color:#e8eef7}
+.hero .affil{color:#93a6c3}
+.hero a{color:var(--accent)}
+.hero .btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:#fff;box-shadow:none;border-radius:8px}
+.hero .btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.hero .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--night)}
+.hero .btn.primary:hover{background:#6ee7b0;color:var(--night)}
+.ticket{box-shadow:0 30px 60px -28px rgba(0,0,0,.6)}
+
+/* dark sections */
+.dark{background:radial-gradient(50% 45% at 90% 0%,rgba(61,220,151,.16),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(30,64,175,.28),transparent 70%),var(--night)}
+.dark a{color:var(--accent)}
+.loop > div::before{background:var(--accent);color:var(--night)}
+.chip,.tab,.btn{border-radius:8px}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--night);border-color:var(--accent)}
+.tab[aria-selected="true"]{background:var(--ink)}
+.stat,.combo div{border-radius:10px}
+.metric,.rule,.viz-card,.fig,.tablewrap,details{border-radius:var(--r)}
+
+/* ---- lighter typography ---- */
+:root{
+  --display:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+}
+body{font-size:18px;line-height:1.6;letter-spacing:0;font-weight:400}
+h1,h2,h3,h4{letter-spacing:-0.02em;line-height:1.12}
+.hero h1{letter-spacing:-0.03em;line-height:1.02}
+h1,h2,h3,h4,b,strong,th,summary,.brand,.btn,.chip,.tab,.mval.best,.best,.bigreward,.statcard b.big,.metric b,.stat b,.ticket-head b,.field label{font-weight:500 !important}
+.hero h1{font-weight:400 !important}
+h2{font-weight:500 !important}
+.lede{font-weight:300}
+.hero .sub{font-weight:300}
+#pRadar .ax.sel text{font-weight:600}
 </style>
 </head>
 <body>
@@ -234,7 +353,6 @@ td.num,th.num{text-align:right}
     <div class="navlinks">
       <a href="#overview">Overview</a>
       <a href="#maps">Maps</a>
-      <a href="#scoring">Scoring</a>
       <a href="#controller">Controller</a>
       <a href="#evaluation">Evaluation</a>
       <a href="#results">Results</a>
@@ -250,11 +368,14 @@ td.num,th.num{text-align:right}
       <p class="sub">DuoCook asks a single vision-language model to schedule two cooks, share equipment, and beat the order clock.</p>
 
       <div class="authors">
-        <!-- TODO: add author links and affiliation markers -->
-        <span>Allison Jiao</span>, <span>Heng Zhang</span>, <span>Drishti Regmi</span>, <span>Koe Ye</span>, <span>Lianhui Qin</span>, <span>Peter Yichen Chen</span>
+        <span>Allison Jiao<sup>1</sup></span>, <span>Heng Zhang<sup>1</sup></span>, <span>Drishti Regmi<sup>2</sup></span>, <span>Koe Ye<sup>2</sup></span>, <span>Lianhui Qin<sup>2</sup></span>, <span>Peter Yichen Chen<sup>3</sup></span>
       </div>
-      <!-- TODO: add affiliations for all authors -->
-      <div class="affil">Built on <a href="https://simworld.org/">SimWorld</a></div>
+      <div class="affil">
+        <sup>1</sup><a href="https://www.cs.ubc.ca">University of British Columbia, Department of Computer Science</a> &nbsp;·&nbsp;
+        <sup>2</sup><a href="https://ucsd.edu">University of California, San Diego</a> &nbsp;·&nbsp;
+        <sup>3</sup><a href="https://www.csail.mit.edu">Computer Science and Artificial Intelligence Laboratory, MIT</a>
+      </div>
+      <div class="affil" style="margin-top:6px">Built on <a href="https://simworld.org/">SimWorld</a></div>
 
       <div class="btns">
         <!-- TODO: set real URLs, then remove the "soon" class -->
@@ -336,54 +457,6 @@ td.num,th.num{text-align:right}
       </div>
     </div>
     <p class="muted" style="margin-top:36px;max-width:68ch">All maps share the same pieces: floors, counters, ingredient bins, pots, plates, chopping boards, and serving points. Chopping and dish washing keep a player busy, while soup boils unattended, so a good schedule overlaps work.</p>
-  </div>
-</section>
-
-<section id="scoring">
-  <div class="wrap">
-    <div class="narrow">
-      <h2>Every delivery pays 20. Speed and streaks pay the rest.</h2>
-      <p class="lede">Drag the sliders to see how waiting time and combo streak change a delivery’s payout.</p>
-    </div>
-
-    <div class="calc">
-      <div>
-        <div class="field">
-          <label for="wIn">Waiting time at delivery <span id="wOut">900 steps</span></label>
-          <input id="wIn" type="range" min="0" max="3000" step="10" value="900">
-        </div>
-        <div class="field">
-          <label for="sIn">Delivery number in the streak <span id="sOut">3rd</span></label>
-          <input id="sIn" type="range" min="1" max="8" step="1" value="3">
-          <div class="combo" id="comboRow" aria-hidden="true"></div>
-        </div>
-        <div class="tablewrap">
-          <table>
-            <thead><tr><th>Zone</th><th>Waiting steps</th><th>Base tip</th></tr></thead>
-            <tbody>
-              <tr><td>Green</td><td>0 to 1,350</td><td>8</td></tr>
-              <tr><td>Yellow</td><td>1,351 to 2,100</td><td>5</td></tr>
-              <tr><td>Red</td><td>2,101 to 2,550</td><td>3</td></tr>
-              <tr><td>Last call</td><td>2,551 to 2,999</td><td>0</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="ticket">
-        <div class="ticket-head"><b>Delivery payout</b><span id="cZone">Green zone</span></div>
-        <div class="zonebar" aria-hidden="true">
-          <i class="z-green" style="width:45%"></i><i class="z-yellow" style="width:25%"></i><i class="z-red" style="width:15%"></i><i class="z-last" style="width:15%"></i>
-          <div class="marker" id="cMarker" style="left:30%"></div>
-        </div>
-        <div class="zonelabels"><span style="width:45%">0</span><span style="width:25%">1,350</span><span style="width:15%">2,100</span><span style="width:15%">2,550</span></div>
-        <div style="margin:26px 0 6px"><span class="bigreward" id="cReward">44</span> <span class="muted">points</span></div>
-        <div class="formula" id="cFormula">R = 20 + 3 × 8 = 44</div>
-        <p class="ticket-note" id="cNote">The combo multiplier follows 1, 1, 2, 3, 4 and caps at 4. It scales the tip only, never the 20-point base.</p>
-      </div>
-    </div>
-
-    <div class="callout">An order that expires resets the streak to zero. Order of delivery is free, so the scheduler can pick whichever dish is closest to finished.</div>
   </div>
 </section>
 
@@ -474,11 +547,16 @@ td.num,th.num{text-align:right}
     </div>
 
     <h3 style="margin-top:56px">Main benchmark, 20 maps</h3>
-    <div class="tablewrap" style="margin-top:14px">
-      <table id="mainTable">
-        <thead><tr><th>Controller</th><th>Score ↑</th><th>Order completion (%) ↑</th><th>Delivery precision (%) ↑</th><th>Action acceptance (%) ↑</th><th>API cost (USD/ep.) ↓</th></tr></thead>
-        <tbody></tbody>
-      </table>
+    <div class="viz-card" id="scatterCard" style="margin-top:14px">
+      <div class="legendrow" id="mLegend"></div>
+      <div id="scatter"></div>
+      <p class="muted" style="margin:8px 0 0;font-size:15px">Up is a higher score and left is cheaper. Bubble size is order completion. The top controller costs about 19× the cheapest.</p>
+    </div>
+    <h3 style="margin-top:56px">Controller profiles</h3>
+    <p class="muted" style="margin:8px 0 14px;max-width:68ch">Pick a controller, then tap an axis on the radar to inspect it. Axes are scaled against the best of the four, and radar area is not an overall score.</p>
+    <div class="viz-card profile" id="profile">
+      <div class="tabs" id="pTabs" role="tablist"></div>
+      <div class="pgrid"><div id="pRadar"></div><div id="pInfo"></div></div>
     </div>
     <p class="muted" style="margin-top:12px;font-size:15px">Averaged with equal weight across maps. Delivery precision is undefined when a controller delivers nothing, so <span class="mono">n</span> counts the maps that enter that mean. Where controllers deliver, they mostly deliver the right dish.</p>
 
@@ -575,31 +653,6 @@ td.num,th.num{text-align:right}
     })(performance.now());
   }
 
-  /* ---------- calculator ---------- */
-  var wIn=document.getElementById("wIn"), sIn=document.getElementById("sIn");
-  var combo=document.getElementById("comboRow");
-  for(var i=1;i<=8;i++){ var d=document.createElement("div"); d.textContent="×"+mult(i); combo.appendChild(d); }
-  function paintCalc(){
-    var w=+wIn.value, k=+sIn.value, z=zoneOf(w), m=mult(k);
-    document.getElementById("wOut").textContent = w.toLocaleString() + " steps";
-    document.getElementById("sOut").textContent = ordinal(k);
-    document.getElementById("cZone").textContent = z.name;
-    document.getElementById("cMarker").style.left = (w/3000*100)+"%";
-    [].forEach.call(combo.children,function(c,idx){ c.classList.toggle("on", idx===k-1); });
-    var rw=document.getElementById("cReward"), f=document.getElementById("cFormula"), n=document.getElementById("cNote");
-    if(z.name==="Expired"){
-      rw.textContent="0"; rw.classList.add("expired");
-      f.textContent="Order expired: no payout, streak resets to 0";
-      n.textContent="At 3,000 steps an order expires. How a delivery at exactly step 3,000 is resolved is still being documented.";
-    } else {
-      rw.classList.remove("expired");
-      rw.textContent = 20 + m*z.tip;
-      f.textContent = "R = 20 + " + m + " × " + z.tip + " = " + (20+m*z.tip);
-      n.textContent = "The combo multiplier follows 1, 1, 2, 3, 4 and caps at 4. It scales the tip only, never the 20-point base.";
-    }
-  }
-  wIn.addEventListener("input",paintCalc); sIn.addEventListener("input",paintCalc); paintCalc();
-
   /* ---------- map explorer ---------- */
   var COL = {"#":"#8d99ae","I":"#2e9e5b","C":"#b9821f","P":"#c2410c","S":"#f4b400","h":"#6b7a99"};
   var MAPS = [
@@ -636,10 +689,10 @@ td.num,th.num{text-align:right}
         }
         if(ch==="A"||ch==="B"){
           svg.appendChild(el("circle",{cx:x+CELL/2-.5,cy:y+CELL/2-.5,r:10,fill:ch==="A"?"#3b82f6":"#e11d48"}));
-          var t=el("text",{x:x+CELL/2-.5,y:y+CELL/2+4,"text-anchor":"middle","font-size":12,"font-weight":700,fill:"#fff","font-family":"Instrument Sans, sans-serif"}); t.textContent=ch; svg.appendChild(t);
+          var t=el("text",{x:x+CELL/2-.5,y:y+CELL/2+4,"text-anchor":"middle","font-size":12,"font-weight":700,fill:"#fff","font-family":"Source Sans 3, sans-serif"}); t.textContent=ch; svg.appendChild(t);
         }
         if(ch==="I"||ch==="C"||ch==="P"||ch==="S"){
-          var lt=el("text",{x:x+CELL/2-.5,y:y+CELL/2+4,"text-anchor":"middle","font-size":12,"font-weight":700,fill:ch==="S"?"#172033":"#fff","font-family":"Instrument Sans, sans-serif"}); lt.textContent=ch; svg.appendChild(lt);
+          var lt=el("text",{x:x+CELL/2-.5,y:y+CELL/2+4,"text-anchor":"middle","font-size":12,"font-weight":700,fill:ch==="S"?"#172033":"#fff","font-family":"Source Sans 3, sans-serif"}); lt.textContent=ch; svg.appendChild(lt);
         }
       });
     });
@@ -675,25 +728,88 @@ td.num,th.num{text-align:right}
     {m:"gpt-6-astra",v:[31.2,18.8,31.2,31.2,18.8]}
   ];
   var MEM=[
-    {m:"qwen3.8-27b",d:"≈ +1.5",w:0.27,wo:0.18},
-    {m:"gemini-3.5-flash-lite",d:"≈ −8",w:0.30,wo:0.18},
-    {m:"claude-opus-5",d:"≈ +5",w:4.61,wo:4.06},
-    {m:"gpt-6-astra",d:"≈ −3",w:5.18,wo:3.23}
+    {m:"qwen3.8-27b",d:"≈ +1.5",dv:1.5,w:0.27,wo:0.18},
+    {m:"gemini-3.5-flash-lite",d:"≈ −8",dv:-8,w:0.30,wo:0.18},
+    {m:"claude-opus-5",d:"≈ +5",dv:5,w:4.61,wo:4.06},
+    {m:"gpt-6-astra",d:"≈ −3",dv:-3,w:5.18,wo:3.23}
   ];
   function cell(txt,cls){ var td=document.createElement("td"); td.textContent=txt; if(cls) td.className=cls; return td; }
   function modelCell(name){ var td=document.createElement("td"); td.className="mono-cell"; td.textContent=name; return td; }
-  var mt=document.querySelector("#mainTable tbody");
-  MAIN.forEach(function(r){
-    var tr=document.createElement("tr"); tr.appendChild(modelCell(r.m));
-    var vals=[["score",r.score.toFixed(1)],["comp",r.comp.toFixed(1)],["prec",r.prec+" (n="+r.n+")"],["acc",r.acc.toFixed(1)],["cost",r.cost.toFixed(2)]];
-    vals.forEach(function(v){ tr.appendChild(cell(v[1], BEST[v[0]]===r.m ? "best" : "")); });
-    mt.appendChild(tr);
+  var COLOR={"qwen3.8-27b":"#0ea5b7","gemini-3.5-flash-lite":"#94a3b8","claude-opus-5":"#1e3a8a","gpt-6-astra":"#1f9d6b"};
+  var lg=document.getElementById("mLegend");
+  MAIN.forEach(function(r){ lg.insertAdjacentHTML("beforeend",'<span><i style="background:'+COLOR[r.m]+'"></i>'+r.m+'</span>'); });
+  (function(){
+    var W=640,H=350,L=52,R=34,T=16,B=46,pw=W-L-R,ph=H-T-B,g="";
+    var X=function(c){return L+(Math.log10(c)+1)/2*pw}, Y=function(v){return T+ph-v/30*ph};
+    [0.1,1,10].forEach(function(t){ g+='<line x1="'+X(t)+'" x2="'+X(t)+'" y1="'+T+'" y2="'+(T+ph)+'" stroke="rgba(15,23,42,.08)"/><text x="'+X(t)+'" y="'+(H-24)+'" text-anchor="middle">$'+t+'</text>'; });
+    [0,10,20,30].forEach(function(t){ g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(t)+'" y2="'+Y(t)+'" stroke="rgba(15,23,42,.08)"/><text x="'+(L-10)+'" y="'+(Y(t)+4)+'" text-anchor="end">'+t+'</text>'; });
+    g+='<text x="'+(L+pw/2)+'" y="'+(H-4)+'" text-anchor="middle">API cost per episode (USD, log scale)</text><text transform="translate(14,'+(T+ph/2)+') rotate(-90)" text-anchor="middle">Total score</text>';
+    var pos={"qwen3.8-27b":1,"gemini-3.5-flash-lite":-1,"claude-opus-5":1,"gpt-6-astra":-1};
+    MAIN.forEach(function(r){
+      var x=X(r.cost),y=Y(r.score),rad=9+r.comp*0.8,ly=pos[r.m]>0?y+rad+15:y-rad-8;
+      g+='<g class="pt"><circle cx="'+x+'" cy="'+y+'" r="'+rad+'" fill="'+COLOR[r.m]+'" fill-opacity=".88" stroke="#fff" stroke-width="2.5"><title>'+r.m+': score '+r.score+', completion '+r.comp+'%, $'+r.cost+'/episode</title></circle><text class="nm" x="'+x+'" y="'+ly+'" text-anchor="middle">'+r.m+'</text></g>';
+    });
+    document.getElementById("scatter").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Score versus API cost for the four controllers">'+g+'</svg>';
+  })();
+  var AX=[
+    {k:"score",n:"Score",full:"Total score",d:"Points from all deliveries, tips and combos, averaged across 20 maps.",f:function(v){return v.toFixed(1)},hi:1},
+    {k:"comp",n:"Completion",full:"Order completion",d:"Share of all orders delivered before they expire.",f:function(v){return v.toFixed(1)+"%"},hi:1},
+    {k:"prec",n:"Precision",full:"Delivery precision",d:"Correct deliveries divided by dishes served, over maps where something was served.",f:function(v){return v.toFixed(1)+"%"},hi:1},
+    {k:"acc",n:"Acceptance",full:"Action acceptance",d:"Commands the engine accepted, divided by commands issued.",f:function(v){return v.toFixed(1)+"%"},hi:1},
+    {k:"cost",n:"Cost efficiency",full:"API cost",d:"USD per episode including retries and image inputs. Cheaper sits further out on the radar.",f:function(v){return "$"+v.toFixed(2)+" per episode"},hi:-1}
+  ];
+  var CATS=["Basic","Shared","Dynamic","Dyn + shared","Separated"];
+  var STORY={
+    "gpt-6-astra":["Clear leader, highest price.","Scores 25.6, more than twice the next controller, with the best completion and acceptance rates. It also costs the most, at $5.18 per episode."],
+    "claude-opus-5":["Right dish, rarely served.","When it delivers it picks the right dish every time, but that happened on only 5 of 20 maps. It scores 8.2 at $4.61 per episode."],
+    "qwen3.8-27b":["Cheapest, modest scores.","The lowest cost at $0.27 per episode, with a score of 9.1. It completes orders on four of the five categories and none on dynamic maps with shared equipment."],
+    "gemini-3.5-flash-lite":["Cheap and second best.","Second on score (11.9) at $0.30 per episode, but with the lowest action acceptance (32.1%). It completes nothing on separated workspaces or on dynamic maps with shared equipment."]
+  };
+  function val(r,k){return parseFloat(r[k]);}
+  function norm(r,a){ var vs=MAIN.map(function(x){return val(x,a.k)}); return a.hi>0 ? val(r,a.k)/Math.max.apply(null,vs) : Math.min.apply(null,vs)/val(r,a.k); }
+  var pm=3, pa=0;
+  function renderProfile(){
+    var r=MAIN[pm], col=COLOR[r.m], N=AX.length, cx=210, cy=190, R=125, pts=[], g="";
+    function P(i,f){ var t=-Math.PI/2+i*2*Math.PI/N; return [cx+Math.cos(t)*R*f, cy+Math.sin(t)*R*f]; }
+    [.25,.5,.75,1].forEach(function(f){ g+='<polygon points="'+AX.map(function(_,i){return P(i,f).join(",")}).join(" ")+'" fill="none" stroke="rgba(15,23,42,.1)"/>'; });
+    AX.forEach(function(_,i){ g+='<line x1="'+cx+'" y1="'+cy+'" x2="'+P(i,1)[0]+'" y2="'+P(i,1)[1]+'" stroke="rgba(15,23,42,.08)"/>'; });
+    AX.forEach(function(a,i){ pts.push(P(i,Math.max(.04,norm(r,a))).join(",")); });
+    g+='<g class="poly"><polygon points="'+pts.join(" ")+'" fill="'+col+'" fill-opacity=".18" stroke="'+col+'" stroke-width="3" stroke-linejoin="round"/></g>';
+    AX.forEach(function(a,i){
+      var q=P(i,Math.max(.04,norm(r,a))), l=P(i,1.2), sel=i===pa, dx=l[0]-cx, anc=Math.abs(dx)<8?"middle":(dx>0?"start":"end");
+      g+='<g class="ax'+(sel?" sel":"")+'" data-i="'+i+'" tabindex="0" role="button" aria-label="Inspect '+a.full+'"><circle cx="'+q[0]+'" cy="'+q[1]+'" r="'+(sel?9:5)+'" fill="'+col+'" stroke="#fff" stroke-width="'+(sel?3:2)+'"/><circle cx="'+q[0]+'" cy="'+q[1]+'" r="20" fill="transparent"/><text x="'+l[0]+'" y="'+(l[1]+4)+'" text-anchor="'+anc+'">'+a.n+'</text></g>';
+    });
+    document.getElementById("pRadar").innerHTML='<svg viewBox="0 0 420 390" role="group" aria-label="Radar chart for '+r.m+'">'+g+'</svg>';
+    var a=AX[pa], v=val(r,a.k), rank=1+MAIN.filter(function(x){return a.hi>0 ? val(x,a.k)>v : val(x,a.k)<v}).length;
+    var strip=HEAT[pm].v.map(function(x,i){ var al=Math.round(Math.max(.1,Math.min(x/40,1)*.9)*255).toString(16).padStart(2,"0"); return '<div style="background:'+col+al+'">'+CATS[i]+'<b class="mono" style="display:block;font-size:14px">'+x.toFixed(1)+'</b></div>'; }).join("");
+    var mem=MEM[pm];
+    document.getElementById("pInfo").innerHTML='<h3 style="font-size:30px">'+STORY[r.m][0]+'</h3><p class="muted" style="margin:6px 0 0;font-size:15px">'+r.m+' · 20 maps · one episode per map</p>'+
+      '<div class="statcard"><small>'+a.full+'</small><b class="big" style="color:'+col+'">'+a.f(v)+(a.k==="prec"?' <span style="font-size:16px;color:var(--mid)">on '+r.n+' maps</span>':'')+'</b><small>'+a.d+' Ranked '+rank+' of 4.</small></div>'+
+      '<p>'+STORY[r.m][1]+'</p><small class="muted">Order completion by category (%)</small><div class="cats">'+strip+'</div>'+
+      '<p class="muted" style="font-size:14px;margin:14px 0 0">Adding shared memory: $'+mem.wo.toFixed(2)+' to $'+mem.w.toFixed(2)+' per episode, score change '+mem.d+'.</p>';
+  }
+  var tabs=document.getElementById("pTabs");
+  MAIN.slice().reverse().forEach(function(r){
+    var i=MAIN.indexOf(r), b=document.createElement("button"); b.type="button"; b.className="tab"; b.setAttribute("role","tab");
+    b.innerHTML='<i style="width:10px;height:10px;border-radius:50%;background:'+COLOR[r.m]+';display:inline-block"></i>'+r.m;
+    b.addEventListener("click",function(){ pm=i; paintTabs(); renderProfile(); }); b.dataset.i=i; tabs.appendChild(b);
   });
+  function paintTabs(){ [].forEach.call(tabs.children,function(b){ b.setAttribute("aria-selected", +b.dataset.i===pm?"true":"false"); }); }
+  function pick(e){ var n=e.target.closest&&e.target.closest("[data-i]"); if(n&&n.classList.contains("ax")){ pa=+n.dataset.i; renderProfile(); } }
+  var pr=document.getElementById("pRadar");
+  pr.addEventListener("click",pick);
+  pr.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(e); } });
+  paintTabs(); renderProfile();
+  var targets=document.querySelectorAll("#scatterCard");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }); },{threshold:.25});
+    targets.forEach(function(t){ io.observe(t); });
+  } else { targets.forEach(function(t){ t.classList.add("in"); }); }
   var ht=document.querySelector("#heatTable tbody");
   HEAT.forEach(function(r){
     var tr=document.createElement("tr"); tr.appendChild(modelCell(r.m));
     r.v.forEach(function(v){
-      var td=cell(v.toFixed(1),"cell"); td.style.background="rgba(13,148,136,"+Math.min(v/40,1)*0.75+")";
+      var td=cell(v.toFixed(1),"cell"); td.style.background="rgba(31,157,107,"+Math.min(v/40,1)*0.75+")";
       if(v/40>0.7) td.style.color="#fff"; tr.appendChild(td);
     });
     ht.appendChild(tr);
@@ -702,7 +818,8 @@ td.num,th.num{text-align:right}
   var mm=document.querySelector("#memTable tbody");
   MEM.forEach(function(r){
     var tr=document.createElement("tr"); tr.appendChild(modelCell(r.m));
-    var d=cell(r.d,"delta"); tr.appendChild(d);
+    var d=document.createElement("td"), pc=Math.min(Math.abs(r.dv)/10,1)*50;
+    d.innerHTML='<div class="dv"><div class="dvbar"><i style="'+(r.dv>=0?'left:50%':'right:50%')+';width:'+pc+'%;background:'+(r.dv>=0?"#1f9d6b":"#ef4444")+'"></i></div><span class="delta">'+r.d+'</span></div>'; tr.appendChild(d);
     var td=document.createElement("td"); var bars=document.createElement("div"); bars.className="bars";
     [["f-with",r.w],["f-without",r.wo]].forEach(function(b){
       var row=document.createElement("div"); row.className="bar";
